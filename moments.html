@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Наши моменты</title> <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root{--accent:#e05580;--bg:#fff5f7;--dark:#3a2b3d}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Verdana,sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;display:flex;justify-content:center;gap:28px;padding:14px 10px;background:rgba(255,245,247,.85);backdrop-filter:blur(8px);z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+nav a{color:var(--dark);text-decoration:none;font-weight:600;font-size:15px;transition:color .3s}
+nav a:hover{color:var(--accent)}
+nav a.active{color:var(--accent);border-bottom:2px solid var(--accent)}
+header.top{padding:110px 20px 10px;text-align:center;position:relative;z-index:1}
+h1{font-size:clamp(26px,5vw,42px);color:var(--accent)}
+.lead{text-align:center;color:#8a6f7d;margin-top:12px}
+.timeline{position:relative;max-width:840px;margin:60px auto;padding:0 20px}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(#e05580,#f7b2c5);transform:translateX(-50%);border-radius:3px}
+.item{display:flex;align-items:center;margin:44px 0;position:relative}
+.item:nth-child(even){flex-direction:row-reverse}
+.dot{position:absolute;left:50%;transform:translateX(-50%);width:18px;height:18px;background:#fff;border:4px solid var(--accent);border-radius:50%;z-index:2}
+.photo{width:46%;aspect-ratio:4/3;border-radius:18px;overflow:hidden;cursor:pointer;box-shadow:0 10px 30px rgba(58,43,61,.15);flex-shrink:0}
+.ph{width:100%;height:100%;background:linear-gradient(135deg,#fbd3e0,#f7b2c5);display:flex;align-items:center;justify-content:center;font-size:56px;transition:transform .4s}
+.photo:hover .ph{transform:scale(1.07)}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,center top);display:block;transition:transform .4s}
+.photo:hover img{transform:scale(1.07)}
+.content{width:54%;padding:0 30px}
+.date{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+.item h3{margin:6px 0 10px;font-size:22px}
+.item p{color:#6d5a66;line-height:1.55}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:none}
+#lb{position:fixed;inset:0;background:rgba(58,43,61,.88);display:none;align-items:center;justify-content:center;flex-direction:column;z-index:20;cursor:zoom-out;padding:24px;text-align:center}
+#lb img{max-width:90vw;max-height:70vh;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.big-emoji{font-size:120px}
+#lb-cap{color:#fff;margin-top:16px;font-size:18px}
+#lb .hint{color:#f7c2d4;margin-top:8px;font-size:14px}
+#lb .close{position:absolute;top:14px;right:24px;color:#fff;font-size:38px;cursor:pointer}
+footer{text-align:center;padding:40px 20px 60px;color:#b08fa0;position:relative;z-index:1}
+@media(max-width:700px){
+  .timeline::before{left:12px}
+  .item{flex-direction:column!important;align-items:flex-start;margin:36px 0;padding-left:40px}
+  .photo{width:100%}
+  .content{width:100%;padding:14px 0 0}
+  .dot{left:12px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Главная</a>
+  <a href="moments.html" class="active">Наши моменты</a>
+  <a href="quiz.html">Тест</a>
+</nav>
+<header class="top">
+  <h1>Наши моменты</h1>
+  <p class="lead">Коллекция маленьких историй, которые я никогда не забуду.</p>
+</header>
+<div class="timeline">
+  <!-- Чтобы добавить своё фото: положите файл (photo1.jpg и т.д.) рядом
+       с этой страницей — он подставится автоматически. Если фото нет,
+       покажется красивая заглушка с эмодзи. -->
+  <div class="item reveal"><div class="dot"></div>
+    <div class="photo" data-emoji="🌇" data-src="img/photo1.jpg" data-cap="Наше первое свидание"><div class="ph">🌇</div></div>
+    <div class="content"><div class="date">Тот самый день</div><h3>Первое свидание</h3><p>Поход в кино на Пеловека-Чаука. Не помню, было ли это самое первое свидание, но в моей памяти это отпечатолось важным событием.</p></div>
+  </div>
+  <div class="item reveal"><div class="dot"></div>
+    <div class="photo" data-emoji="🎡" data-src="img/photo2.jpg" data-cap="Наверху, между небом и нами"><div class="ph">🎡</div></div>
+    <div class="content"><div class="date">Через месяц</div><h3>Поход на каток</h3><p>Я боялся коньков и кататься на льду, но именно ты помогла побороть этот страх и научила меня кататься.</p></div>
+  </div>
+  <div class="item reveal"><div class="dot"></div>
+    <div class="photo" data-emoji="🍜" data-src="img/photo3.jpg" data-cap="Наше место"><div class="ph">🍜</div></div>
+    <div class="content"><div class="date">Каждые выходные и не только</div><h3>Мероприятия</h3><p>Что бы не происходило творческого в моей жизни, ты всегда рядом и всегда поддерживаешь. А ещё сама всегда создаёшь для нас интересные события.</p></div>
+  </div>
+  <div class="item reveal"><div class="dot"></div>
+    <div class="photo" data-emoji="🌊" data-src="img/photo4.jpg" data-cap="Море и мы"><div class="ph">🌊</div></div>
+    <div class="content"><div class="date">Летом</div><h3>Поездки на море</h3><p>В этих поездках всегда появлялось, что-то очень необычное: свидание с вином и пиццей из ростера; песня "Тун, тун, тун, Сюскаааа"...</p></div>
+  </div>
+  <div class="item reveal"><div class="dot"></div>
+    <div class="photo" data-emoji="🎁" data-src="img/photo5.jpg" data-cap="Самый обычный вторник"><div class="ph">🎁</div></div>
+    <div class="content"><div class="date">Без повода</div><h3>Просто любой день</h3><p>Обычный день, который стал особенным — просто потому, что были вместе и вместе дурачились.</p></div>
+  </div>
+  <div class="item reveal"><div class="dot"></div>
+    <div class="photo" data-emoji="❤️" data-src="img/photo6.jpg" data-cap="Каждый день с тобой"><div class="ph">❤️</div></div>
+    <div class="content"><div class="date">Сейчас</div><h3>Продолжение следует…</h3><p>Этот сайт — как раз о таких днях. И впереди их ещё очень много.</p></div>
+  </div>
+</div>
+<footer><p>Сделано с бубовью ❤️</p></footer>
+<div id="lb" onclick="closeLb()">
+  <div class="close">×</div>
+  <div id="lb-media"></div>
+  <div id="lb-cap"></div>
+</div>
+<script>
+// Подстановка настоящих фото, если файлы лежат рядом со страницей
+document.querySelectorAll('.photo').forEach(function(ph){
+  ph.addEventListener('click', function(){ openLb(ph); });
+  const im = new Image(); im.src = ph.dataset.src;
+  im.onload = function(){
+    ph.dataset.loaded = '1';
+    ph.textContent = '';
+    ph.style.cssText = 'background:url(' + ph.dataset.src + ') center/cover';
+  };
+});
+function openLb(ph){
+  const lb = document.getElementById('lb');
+  const m = document.getElementById('lb-media');
+  document.getElementById('lb-cap').textContent = ph.dataset.cap || '';
+  if (ph.dataset.loaded){
+    m.innerHTML = '';
+    const im = new Image(); im.src = ph.dataset.src; m.appendChild(im);
+  } else {
+    m.innerHTML = '<div class="big-emoji">' + ph.dataset.emoji + '</div>' +
+      '<p class="hint">Положите файл ' + ph.dataset.src + ' рядом со страницей — и фото появится само 😉</p>';
+  }
+  lb.style.display = 'flex';
+}
+function closeLb(){ document.getElementById('lb').style.display = 'none'; }
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeLb(); });
+
+// Появление карточек при прокрутке
+const obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if (e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(function(c){ obs.observe(c); });
+</script>
+</body>
+</html>
